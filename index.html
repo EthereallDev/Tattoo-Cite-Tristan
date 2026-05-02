@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tristan Tattoo — Твоя история заслуживает быть видимой</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<nav>
+  <a href="#" class="nav-logo">Tristan</a>
+  <div class="nav-links">
+    <a href="#portfolio">Работы</a>
+    <a href="#about">О мастере</a>
+    <a href="#prices">Цены</a>
+    <a href="#booking">Запись</a>
+  </div>
+</nav>
+
+<section id="hero">
+  <svg class="hero-bg-line" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+    <path class="draw-path" d="M-50,450 C150,200 350,700 550,380 C750,60 900,820 1100,420 C1200,220 1350,580 1500,350"/>
+    <path class="draw-path-2" d="M200,900 C300,650 180,400 350,250 C520,100 600,500 750,300 C900,100 1000,600 1200,400 C1350,250 1400,550 1600,350"/>
+  </svg>
+
+  <div class="hero-content">
+    <p class="hero-eyebrow">Tattooist · Berlin</p>
+    <h1 class="hero-title">Твоя история<br>заслуживает<br>быть <em>видимой</em></h1>
+    <p class="hero-sub">Работаю в любом стиле — потому что стиль следует за твоей идеей, не наоборот. Каждая работа начинается с разговора.</p>
+    <a href="#booking" class="hero-cta">
+      Создать свою историю
+      <span class="hero-cta-arrow">→</span>
+    </a>
+  </div>
+
+  <div class="hero-image">
+    <div class="tattoo-placeholder">
+      <svg class="tattoo-svg-demo" width="260" height="320" viewBox="0 0 260 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M130 280 C130 280 130 100 130 60" stroke="#D4B896" stroke-width="0.8" stroke-linecap="round"/>
+        <path d="M130 180 C110 160 80 155 60 140" stroke="#D4B896" stroke-width="0.6" stroke-linecap="round"/>
+        <path d="M130 200 C150 178 180 172 198 158" stroke="#D4B896" stroke-width="0.6" stroke-linecap="round"/>
+        <path d="M130 155 C115 135 95 130 78 118" stroke="#D4B896" stroke-width="0.5" stroke-linecap="round"/>
+        <path d="M130 165 C145 143 164 137 182 124" stroke="#D4B896" stroke-width="0.5" stroke-linecap="round"/>
+        <path d="M130 130 C118 108 102 104 88 90" stroke="#C4BCB0" stroke-width="0.4" stroke-linecap="round"/>
+        <path d="M130 138 C142 115 158 110 172 95" stroke="#C4BCB0" stroke-width="0.4" stroke-linecap="round"/>
+        <ellipse cx="130" cy="58" rx="14" ry="18" stroke="#D4B896" stroke-width="0.7" fill="none"/>
+        <ellipse cx="56" cy="136" rx="10" ry="13" stroke="#D4B896" stroke-width="0.5" fill="none" transform="rotate(-30 56 136)"/>
+        <ellipse cx="200" cy="154" rx="10" ry="13" stroke="#D4B896" stroke-width="0.5" fill="none" transform="rotate(28 200 154)"/>
+        <ellipse cx="75" cy="115" rx="7" ry="10" stroke="#C4BCB0" stroke-width="0.4" fill="none" transform="rotate(-20 75 115)"/>
+        <ellipse cx="183" cy="121" rx="7" ry="10" stroke="#C4BCB0" stroke-width="0.4" fill="none" transform="rotate(22 183 121)"/>
+        <path d="M120 75 Q130 65 140 75" stroke="#D4B896" stroke-width="0.4" fill="none"/>
+        <path d="M118 82 Q130 70 142 82" stroke="#D4B896" stroke-width="0.3" fill="none"/>
+        <circle cx="105" cy="185" r="1.2" fill="#C4BCB0" opacity=".6"/>
+        <circle cx="158" cy="191" r="1.2" fill="#C4BCB0" opacity=".6"/>
+        <circle cx="92" cy="155" r="0.8" fill="#C4BCB0" opacity=".4"/>
+        <circle cx="170" cy="162" r="0.8" fill="#C4BCB0" opacity=".4"/>
+      </svg>
+    </div>
+  </div>
+
+  <div class="hero-scroll-hint">
+    <span class="scroll-line"></span>
+    Смотреть работы
+  </div>
+</section>
+
+<section id="portfolio">
+  <div class="portfolio-header reveal">
+    <h2 class="portfolio-title">Каждая работа —<br><em style="font-family:'Cormorant Garamond',serif;font-style:italic">отдельная история</em></h2>
+    <div class="filters">
+      <button class="filter-btn active" onclick="filterPortfolio(this,'all')">Все</button>
+      <button class="filter-btn" onclick="filterPortfolio(this,'fineline')">Fine line</button>
+      <button class="filter-btn" onclick="filterPortfolio(this,'blackwork')">Blackwork</button>
+      <button class="filter-btn" onclick="filterPortfolio(this,'geometric')">Геометрия</button>
+      <button class="filter-btn" onclick="filterPortfolio(this,'dotwork')">Dotwork</button>
+    </div>
+  </div>
+
+  <div class="portfolio-grid reveal">
+    <div class="portfolio-item">
+      <div class="portfolio-img">
+        <div class="tattoo-img">
+          <svg width="140" height="200" viewBox="0 0 140 200" fill="none">
+            <path d="M70 180 C70 180 70 40 70 20" stroke="#3D3530" stroke-width="0.7"/>
+            <path d="M70 100 C50 80 25 78 10 65" stroke="#3D3530" stroke-width="0.5"/>
+            <path d="M70 115 C90 93 112 90 128 76" stroke="#3D3530" stroke-width="0.5"/>
+            <ellipse cx="70" cy="18" rx="10" ry="14" stroke="#3D3530" stroke-width="0.6" fill="none"/>
+            <ellipse cx="8" cy="63" rx="8" ry="11" stroke="#3D3530" stroke-width="0.5" fill="none" transform="rotate(-25 8 63)"/>
+            <ellipse cx="130" cy="73" rx="8" ry="11" stroke="#3D3530" stroke-width="0.5" fill="none" transform="rotate(22 130 73)"/>
+          </svg>
+        </div>
+      </div>
+      <div class="portfolio-overlay">
+        <div class="portfolio-style">Fine line · Botanical</div>
+        <div class="portfolio-story">«Хотел что-то живое, что растёт вместе со мной»</div>
+      </div>
+    </div>
+
+    <div class="portfolio-item">
+      <div class="portfolio-img">
+        <div class="tattoo-img">
+          <svg width="100" height="100" viewBox="0 0 100 100" fill="none">
+            <polygon points="50,5 95,75 5,75" stroke="#3D3530" stroke-width="0.6" fill="none"/>
+            <polygon points="50,18 83,70 17,70" stroke="#3D3530" stroke-width="0.4" fill="none"/>
+            <circle cx="50" cy="48" r="12" stroke="#8A7F74" stroke-width="0.4" fill="none"/>
+            <line x1="50" y1="36" x2="50" y2="5" stroke="#8A7F74" stroke-width="0.3"/>
+          </svg>
+        </div>
+      </div>
+      <div class="portfolio-overlay">
+        <div class="portfolio-style">Geometric</div>
+        <div class="portfolio-story">«Три года думал — и нашёл форму»</div>
+      </div>
+    </div>
+
+    <div class="portfolio-item">
+      <div class="portfolio-img">
+        <div class="tattoo-img">
+          <svg width="80" height="100" viewBox="0 0 80 100" fill="none">
+            <circle cx="40" cy="40" r="28" stroke="#3D3530" stroke-width="0.6" fill="none"/>
+            <circle cx="40" cy="40" r="20" stroke="#8A7F74" stroke-width="0.4" fill="none" stroke-dasharray="2 3"/>
+            <circle cx="40" cy="40" r="10" stroke="#3D3530" stroke-width="0.5" fill="none"/>
+            <circle cx="40" cy="40" r="2" fill="#3D3530"/>
+          </svg>
+        </div>
+      </div>
+      <div class="portfolio-overlay">
+        <div class="portfolio-style">Dotwork</div>
+        <div class="portfolio-story">«Минимум форм, максимум смысла»</div>
+      </div>
+    </div>
+
+    <div class="portfolio-item">
+      <div class="portfolio-img">
+        <div class="tattoo-img">
+          <svg width="100" height="120" viewBox="0 0 100 120" fill="none">
+            <path d="M50 110 C50 110 20 80 20 50 C20 30 34 15 50 15 C66 15 80 30 80 50 C80 80 50 110 50 110Z" stroke="#3D3530" stroke-width="0.7" fill="none"/>
+            <path d="M50 95 C50 95 28 70 28 50 C28 35 38 22 50 22 C62 22 72 35 72 50 C72 70 50 95 50 95Z" stroke="#8A7F74" stroke-width="0.4" fill="none"/>
+          </svg>
+        </div>
+      </div>
+      <div class="portfolio-overlay">
+        <div class="portfolio-style">Fine line</div>
+        <div class="portfolio-story">«Просто — значит точно»</div>
+      </div>
+    </div>
+
+    <div class="portfolio-item">
+      <div class="portfolio-img">
+        <div class="tattoo-img">
+          <svg width="80" height="100" viewBox="0 0 80 100" fill="none">
+            <line x1="40" y1="10" x2="40" y2="90" stroke="#3D3530" stroke-width="0.6"/>
+            <line x1="10" y1="40" x2="70" y2="40" stroke="#3D3530" stroke-width="0.6"/>
+            <line x1="17" y1="17" x2="63" y2="63" stroke="#8A7F74" stroke-width="0.4"/>
+            <line x1="63" y1="17" x2="17" y2="63" stroke="#8A7F74" stroke-width="0.4"/>
+            <circle cx="40" cy="40" r="18" stroke="#3D3530" stroke-width="0.5" fill="none"/>
+          </svg>
+        </div>
+      </div>
+      <div class="portfolio-overlay">
+        <div class="portfolio-style">Geometric · Blackwork</div>
+        <div class="portfolio-story">«Мне нужна была точка опоры»</div>
+      </div>
+    </div>
+
+    <div class="portfolio-item">
+      <div class="portfolio-img">
+        <div class="tattoo-img">
+          <svg width="220" height="120" viewBox="0 0 220 120" fill="none">
+            <path d="M20 80 C40 40 60 90 80 50 C100 10 120 70 140 40 C160 10 180 60 200 35" stroke="#3D3530" stroke-width="0.7" stroke-linecap="round" fill="none"/>
+            <path d="M20 90 C40 50 60 100 80 60 C100 20 120 80 140 50 C160 20 180 70 200 45" stroke="#8A7F74" stroke-width="0.4" stroke-linecap="round" fill="none" stroke-dasharray="1 3"/>
+          </svg>
+        </div>
+      </div>
+      <div class="portfolio-overlay">
+        <div class="portfolio-style">Fine line · Abstract</div>
+        <div class="portfolio-story">«Линия как дыхание — непрерывная»</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="about-image-wrap reveal">
+    <div class="about-image">
+      <svg width="180" height="220" viewBox="0 0 180 220" fill="none" opacity=".3">
+        <circle cx="90" cy="80" r="50" stroke="white" stroke-width="0.5" fill="none"/>
+        <circle cx="90" cy="80" r="35" stroke="white" stroke-width="0.3" fill="none" stroke-dasharray="2 4"/>
+        <line x1="90" y1="30" x2="90" y2="130" stroke="white" stroke-width="0.4"/>
+        <line x1="40" y1="80" x2="140" y2="80" stroke="white" stroke-width="0.4"/>
+      </svg>
+      <div class="about-image-label">Tristan · Tattooist</div>
+    </div>
+  </div>
+
+  <div class="about-content reveal">
+    <div class="section-label">О мастере</div>
+    <h2 class="about-title">Я не следую стилю.<br>Я следую <em>идее</em></h2>
+    <p class="about-text">За восемь лет работы я понял одно: самое сильное тату — это не то, которое технически сложнее. Это то, в котором человек узнаёт себя.</p>
+    <p class="about-text">Поэтому каждый проект начинается с разговора. Я работаю во всех стилях не потому что умею всё — а потому что для каждой истории нужен свой язык.</p>
+    <p class="about-text">Fine line, blackwork, геометрия, дотворк — это инструменты. Твоя история — это материал.</p>
+
+    <div class="about-stats">
+      <div>
+        <div class="stat-num">8</div>
+        <div class="stat-label">Лет практики</div>
+      </div>
+      <div>
+        <div class="stat-num">400+</div>
+        <div class="stat-label">Работ</div>
+      </div>
+      <div>
+        <div class="stat-num">12</div>
+        <div class="stat-label">Стилей</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="stories">
+  <div class="stories-header reveal">
+    <h2 class="stories-title">Процесс.<br>Отзывы. Результат.</h2>
+    <div class="stories-nav">
+      <button class="stories-nav-btn" id="prevBtn" onclick="slideStories(-1)">←</button>
+      <button class="stories-nav-btn" id="nextBtn" onclick="slideStories(1)">→</button>
+    </div>
+  </div>
+
+  <div class="stories-track-wrap reveal">
+    <div class="stories-track" id="storiesTrack">
+      <div class="story-card">
+        <div class="story-card-img">
+          <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+            <circle cx="40" cy="40" r="25" stroke="#8A7F74" stroke-width="0.5" fill="none"/>
+            <path d="M28 40 L40 52 L54 30" stroke="#B8956A" stroke-width="1" stroke-linecap="round" fill="none"/>
+          </svg>
+        </div>
+        <div class="story-card-body">
+          <div class="story-tag">Зажившая работа · 3 месяца</div>
+          <div class="story-quote">«Через три месяца линии такие же чёткие. Я в восторге»</div>
+          <div class="story-meta">Fine line botanical · Предплечье</div>
+        </div>
+      </div>
+
+      <div class="story-card">
+        <div class="story-card-img">
+          <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+            <rect x="20" y="20" width="40" height="40" stroke="#8A7F74" stroke-width="0.5" fill="none"/>
+            <rect x="28" y="28" width="24" height="24" stroke="#8A7F74" stroke-width="0.3" fill="none" transform="rotate(45 40 40)"/>
+          </svg>
+        </div>
+        <div class="story-card-body">
+          <div class="story-tag">Процесс · Сессия 2</div>
+          <div class="story-quote">«Тристан объяснил каждый шаг — я понимал, что происходит»</div>
+          <div class="story-meta">Geometric blackwork · Плечо</div>
+        </div>
+      </div>
+
+      <div class="story-card">
+        <div class="story-card-img">
+          <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+            <path d="M40 15 C40 15 18 35 18 50 C18 62 28 70 40 70 C52 70 62 62 62 50 C62 35 40 15 40 15Z" stroke="#8A7F74" stroke-width="0.5" fill="none"/>
+          </svg>
+        </div>
+        <div class="story-card-body">
+          <div class="story-tag">Отзыв · Постоянный клиент</div>
+          <div class="story-quote">«Это уже четвёртая работа у Тристана. Иду только к нему»</div>
+          <div class="story-meta">Fine line · Рёбра</div>
+        </div>
+      </div>
+
+      <div class="story-card">
+        <div class="story-card-img">
+          <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+            <line x1="20" y1="40" x2="60" y2="40" stroke="#8A7F74" stroke-width="0.5"/>
+            <circle cx="40" cy="40" r="15" stroke="#B8956A" stroke-width="0.5" fill="none"/>
+            <circle cx="40" cy="40" r="3" fill="#8A7F74"/>
+          </svg>
+        </div>
+        <div class="story-card-body">
+          <div class="story-tag">Зажившая работа · 6 месяцев</div>
+          <div class="story-quote">«Полгода — и тату выглядит как новое»</div>
+          <div class="story-meta">Dotwork · Запястье</div>
+        </div>
+      </div>
+
+      <div class="story-card">
+        <div class="story-card-img">
+          <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+            <path d="M15 40 C25 20 35 55 45 30 C55 5 65 45 75 25" stroke="#8A7F74" stroke-width="0.6" fill="none" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="story-card-body">
+          <div class="story-tag">Консультация → Эскиз</div>
+          <div class="story-quote">«За один разговор Тристан нашёл то, что я искал два года»</div>
+          <div class="story-meta">Fine line abstract · Лопатка</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="booking">
+  <div class="booking-intro reveal">
+    <div class="section-label">Запись</div>
+    <h2 class="booking-title">Начнём<br>с разговора</h2>
+    <p class="booking-desc">Расскажи мне об идее — и я отвечу в течение 24 часов. Никаких шаблонов: каждый проект обсуждается отдельно.</p>
+
+    <div class="booking-steps">
+      <div class="booking-step">
+        <div class="step-num">01</div>
+        <div class="step-text">
+          <div class="step-title">Заполни анкету</div>
+          <div class="step-desc">Расскажи об идее, выбери примерную дату</div>
+        </div>
+      </div>
+      <div class="booking-step">
+        <div class="step-num">02</div>
+        <div class="step-text">
+          <div class="step-title">Я отвечу лично</div>
+          <div class="step-desc">Обсудим детали, предложу эскиз</div>
+        </div>
+      </div>
+      <div class="booking-step">
+        <div class="step-num">03</div>
+        <div class="step-text">
+          <div class="step-title">Подтверждаем дату</div>
+          <div class="step-desc">Встречаемся и создаём историю</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="booking-form reveal" id="bookingForm">
+    <div class="form-row">
+      <div class="field">
+        <label>Имя</label>
+        <input id="bookingName" type="text" placeholder="Антон">
+      </div>
+      <div class="field">
+        <label>Instagram / Telegram</label>
+        <input id="bookingContact" type="text" placeholder="@username">
+      </div>
+    </div>
+
+    <div class="field">
+      <label>Расскажи об идее</label>
+      <textarea id="bookingIdea" placeholder="Что это для тебя? Есть ли конкретный образ или только ощущение?"></textarea>
+    </div>
+
+    <div class="form-row">
+      <div class="field">
+        <label>Примерное место</label>
+        <select id="bookingLocation">
+          <option value="">Выбери...</option>
+          <option>Предплечье</option>
+          <option>Плечо</option>
+          <option>Лопатка</option>
+          <option>Рёбра</option>
+          <option>Нога</option>
+          <option>Другое</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>Предпочтительный стиль</label>
+        <select id="bookingStyle">
+          <option value="">Не знаю — обсудим</option>
+          <option>Fine line</option>
+          <option>Blackwork</option>
+          <option>Geometric</option>
+          <option>Dotwork</option>
+          <option>Другой</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="field">
+      <label>Примерная дата</label>
+      <input id="bookingDate" type="text" placeholder="Октябрь 2025 / как можно раньше">
+    </div>
+
+    <div class="upload-zone" onclick="document.getElementById('fileInput').click()">
+      <input type="file" id="fileInput" style="display:none" multiple accept="image/*">
+      <div class="upload-icon">⊕</div>
+      <div class="upload-text">Загрузи референсы<br><span>нажми или перетащи файлы</span></div>
+    </div>
+
+    <button class="submit-btn" type="button" onclick="handleSubmit()">
+      Создать свою историю →
+    </button>
+  </div>
+
+  <div class="webapp-blocker" id="webAppBlocked" hidden>
+    <div class="webapp-blocker-card">
+      <h3>Открывайте сайт только внутри Telegram</h3>
+      <p>Для отправки заявки используйте кнопку «Открыть сайт / Записаться» в боте.</p>
+    </div>
+  </div>
+</section>
+
+<section id="prices">
+  <div class="section-label reveal">Цены</div>
+  <div class="prices-intro reveal">
+    <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(36px,4vw,52px);font-weight:300;line-height:1.1">Стоимость зависит<br>от <em style="font-style:italic">твоей идеи</em></h2>
+    <p class="price-intro">Я не работаю по фиксированному прайсу — потому что каждая работа уникальна. Ниже — ориентиры, чтобы ты понимал диапазон.</p>
+  </div>
+
+  <div class="prices-grid reveal">
+    <div class="price-card">
+      <div class="price-type">Маленькая работа</div>
+      <div class="price-from">от</div>
+      <div class="price-num"><span class="price-currency">€</span>150</div>
+      <div class="price-desc">До 5 см, простая форма, одна сессия</div>
+      <div class="price-includes">
+        <div class="price-line">Консультация включена</div>
+        <div class="price-line">Эскиз по идее</div>
+        <div class="price-line">Уходовый набор</div>
+      </div>
+    </div>
+
+    <div class="price-card featured">
+      <div class="price-type">Средняя работа</div>
+      <div class="price-from">от</div>
+      <div class="price-num"><span class="price-currency">€</span>350</div>
+      <div class="price-desc">5–15 см, детальная работа, 1–2 сессии</div>
+      <div class="price-includes">
+        <div class="price-line">Подробная консультация</div>
+        <div class="price-line">2–3 варианта эскиза</div>
+        <div class="price-line">Правки включены</div>
+        <div class="price-line">Фото результата</div>
+      </div>
+    </div>
+
+    <div class="price-card">
+      <div class="price-type">Крупный проект</div>
+      <div class="price-from">от</div>
+      <div class="price-num"><span class="price-currency">€</span>800</div>
+      <div class="price-desc">15+ см, несколько сессий, сложная работа</div>
+      <div class="price-includes">
+        <div class="price-line">Полное сопровождение</div>
+        <div class="price-line">Детальный эскиз</div>
+        <div class="price-line">Контроль заживления</div>
+        <div class="price-line">Touch-up включён</div>
+      </div>
+    </div>
+
+    <div class="price-note">
+      Точная стоимость обсуждается после консультации — я расскажу о цене честно, до того как мы начнём.
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="section-label reveal">Вопросы</div>
+  <h2 class="reveal" style="font-family:'Cormorant Garamond',serif;font-size:clamp(32px,3.5vw,48px);font-weight:300;margin-bottom:60px;line-height:1.1">Частые вопросы<br><em style="font-style:italic">от опытных клиентов</em></h2>
+
+  <div class="faq-grid reveal">
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q">Как проходит согласование эскиза? <span class="faq-toggle">+</span></div>
+      <div class="faq-a">После консультации я делаю 2–3 варианта направления. Мы обсуждаем, выбираем, я дорабатываю. На эскиз уходит 3–7 дней. Правки входят в стоимость — работаю до тех пор, пока тебе не будет точно.</div>
+    </div>
+
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q">Что если я передумаю по идее в процессе? <span class="faq-toggle">+</span></div>
+      <div class="faq-a">До начала сессии — без проблем, обсуждаем новый вариант. После начала — зависит от изменений. Именно поэтому я уделяю много времени консультации: лучше проговорить всё до, чем переделывать после.</div>
+    </div>
+
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q">Сколько сессий займёт большой проект? <span class="faq-toggle">+</span></div>
+      <div class="faq-a">Зависит от размера и детализации. Рукав — обычно 4–6 сессий по 3–4 часа с перерывами на заживление. Лопатка — 2–3 сессии. На консультации скажу точнее с учётом твоей идеи.</div>
+    </div>
+
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q">Как правильно ухаживать за сложной работой? <span class="faq-toggle">+</span></div>
+      <div class="faq-a">После каждой сессии я даю подробную инструкцию и уходовый набор. Для крупных работ — контроль через 2 недели лично или по фото. Заживление — часть работы, я за ним слежу.</div>
+    </div>
+
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q">Можешь ли ты доработать чужую работу? <span class="faq-toggle">+</span></div>
+      <div class="faq-a">Да, работаю с cover-up и доработкой существующих татуировок. Присылай фото — оценю потенциал и честно скажу, что реально сделать, а что нет.</div>
+    </div>
+
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q">Как долго ждать записи? <span class="faq-toggle">+</span></div>
+      <div class="faq-a">Обычно 3–6 недель. Для сложных проектов иногда дольше — хочу подойти к каждой работе без спешки. Оставляй заявку, я отвечу с актуальными датами.</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">Tristan</div>
+    <div class="footer-cta-wrap">
+      <div class="footer-cta-text">«Твоя история ждёт — начнём с одного разговора»</div>
+      <a href="#booking" class="footer-btn">Создать свою историю →</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2025 Tristan Tattoo · Berlin</div>
+    <div class="footer-social">
+      <a href="#">Instagram</a>
+      <a href="#">Telegram</a>
+      <a href="#">TikTok</a>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
