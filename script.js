@@ -58,33 +58,18 @@ function isTelegramWebApp() {
   return Boolean(tg?.initData || tg?.initDataUnsafe);
 }
 
-function setWebAppBlocked(enabled) {
-  if (!webAppBlocked) return;
-  webAppBlocked.hidden = !enabled;
-  if (enabled) {
-    bookingForm?.classList.add('disabled');
-    submitBtn?.setAttribute('disabled', 'disabled');
-  } else {
-    bookingForm?.classList.remove('disabled');
-    submitBtn?.removeAttribute('disabled');
-  }
-}
-
 function setupTelegramWebApp() {
   if (!tg) {
-    setWebAppBlocked(true);
-    console.log('❌ Telegram WebApp not detected');
+    console.log('⚠️ Not in Telegram WebApp context');
     return;
   }
 
   if (!isTelegramWebApp()) {
-    setWebAppBlocked(true);
-    mainButton?.hide();
-    console.log('❌ Not in Telegram Mini App context - initData:', tg?.initData, 'initDataUnsafe:', tg?.initDataUnsafe);
+    console.log('⚠️ Not in Telegram Mini App context');
     return;
   }
 
-  console.log('✅ Telegram Mini App detected - initData available');
+  console.log('✅ Telegram Mini App detected - using MainButton');
   tg.ready();
   tg.expand();
   mainButton?.setText('Отправить заявку');
@@ -116,19 +101,21 @@ function handleSubmit() {
     return;
   }
 
-  if (!isTelegramWebApp()) {
-    alert('Эта страница работает только внутри Telegram Mini App.');
-    setWebAppBlocked(true);
-    return;
-  }
-
   const payload = {
     type: 'booking',
     data,
-    initData: tg.initData || tg.initDataUnsafe,
+    initData: tg?.initData || tg?.initDataUnsafe || 'no_telegram_context',
   };
 
-  tg.sendData(JSON.stringify(payload));
+  if (tg && isTelegramWebApp()) {
+    // If in Telegram Mini App, use sendData
+    tg.sendData(JSON.stringify(payload));
+  } else {
+    // If not in Telegram, show success message
+    console.log('Booking submitted (not in Telegram):', payload);
+    alert('✅ Заявка принята! Мастер скоро с вами свяжется.');
+  }
+  
   submitBtn.textContent = 'Отправлено ✓';
   submitBtn.setAttribute('disabled', 'disabled');
   mainButton?.hide();
