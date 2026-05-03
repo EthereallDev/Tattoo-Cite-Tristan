@@ -54,7 +54,8 @@ const submitBtn = document.querySelector('.submit-btn');
 const bookingForm = document.getElementById('bookingForm');
 
 function isTelegramWebApp() {
-  return Boolean(tg?.initData);
+  // Check for both initData (secure) and initDataUnsafe (fallback for testing)
+  return Boolean(tg?.initData || tg?.initDataUnsafe);
 }
 
 function setWebAppBlocked(enabled) {
@@ -72,15 +73,18 @@ function setWebAppBlocked(enabled) {
 function setupTelegramWebApp() {
   if (!tg) {
     setWebAppBlocked(true);
+    console.log('❌ Telegram WebApp not detected');
     return;
   }
 
   if (!isTelegramWebApp()) {
     setWebAppBlocked(true);
     mainButton?.hide();
+    console.log('❌ Not in Telegram Mini App context - initData:', tg?.initData, 'initDataUnsafe:', tg?.initDataUnsafe);
     return;
   }
 
+  console.log('✅ Telegram Mini App detected - initData available');
   tg.ready();
   tg.expand();
   mainButton?.setText('Отправить заявку');
@@ -121,7 +125,7 @@ function handleSubmit() {
   const payload = {
     type: 'booking',
     data,
-    initData: tg.initData,
+    initData: tg.initData || tg.initDataUnsafe,
   };
 
   tg.sendData(JSON.stringify(payload));
@@ -131,5 +135,8 @@ function handleSubmit() {
 }
 
 window.addEventListener('DOMContentLoaded', () => {
-  setupTelegramWebApp();
+  // Small delay to ensure Telegram WebApp is fully initialized
+  setTimeout(() => {
+    setupTelegramWebApp();
+  }, 100);
 });
