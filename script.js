@@ -49,7 +49,6 @@ function toggleFaq(item) {
 // Telegram Web App
 const tg = window.Telegram?.WebApp;
 const mainButton = tg?.MainButton;
-const webAppBlocked = document.getElementById('webAppBlocked');
 const submitBtn = document.querySelector('.submit-btn');
 const bookingForm = document.getElementById('bookingForm');
 
